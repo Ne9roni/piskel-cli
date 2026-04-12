@@ -1,0 +1,31 @@
+{
+  "name": "piskel-cli",
+  "version": "1.0.0",
+  "description": "Headless Piskel-compatible CLI probes",
+  "type": "module",
+  "main": "dist/src/cli.js",
+  "bin": {
+    "piskel-cli": "./dist/src/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "build:reference-exe": "node scripts/build-reference-exe.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gifenc": "^1.0.3",
+    "pngjs": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "@types/pngjs": "^6.0.5",
+    "esbuild": "^0.28.0",
+    "postject": "^1.0.0-alpha.6",
+    "typescript": "^6.0.2",
+    "vitest": "^4.1.4"
+  }
+}

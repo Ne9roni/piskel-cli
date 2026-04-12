@@ -1,0 +1,98 @@
+{
+  "steps": [
+    {
+      "command": "project.create",
+      "args": {
+        "width": 8,
+        "height": 8,
+        "output": "examples-output/heart/heart.piskel",
+        "name": "heart"
+      }
+    },
+    {
+      "command": "draw.pixel",
+      "args": {
+        "project": "examples-output/heart/heart.piskel",
+        "x": 2,
+        "y": 1,
+        "color": "#ff0000"
+      }
+    },
+    {
+      "command": "draw.pixel",
+      "args": {
+        "project": "examples-output/heart/heart.piskel",
+        "x": 5,
+        "y": 1,
+        "color": "#ff0000"
+      }
+    },
+    {
+      "command": "draw.rect",
+      "args": {
+        "project": "examples-output/heart/heart.piskel",
+        "x1": 1,
+        "y1": 2,
+        "x2": 6,
+        "y2": 4,
+        "color": "#ff0000",
+        "filled": true
+      }
+    },
+    {
+      "command": "draw.rect",
+      "args": {
+        "project": "examples-output/heart/heart.piskel",
+        "x1": 2,
+        "y1": 4,
+        "x2": 5,
+        "y2": 5,
+        "color": "#ff0000",
+        "filled": true
+      }
+    },
+    {
+      "command": "draw.line",
+      "args": {
+        "project": "examples-output/heart/heart.piskel",
+        "x1": 1,
+        "y1": 5,
+        "x2": 3,
+        "y2": 7,
+        "color": "#ff0000"
+      }
+    },
+    {
+      "command": "draw.line",
+      "args": {
+        "project": "examples-output/heart/heart.piskel",
+        "x1": 6,
+        "y1": 5,
+        "x2": 4,
+        "y2": 7,
+        "color": "#ff0000"
+      }
+    },
+    {
+      "command": "export.png",
+      "args": {
+        "project": "examples-output/heart/heart.piskel",
+        "output": "examples-output/heart/heart.png"
+      }
+    },
+    {
+      "command": "export.gif",
+      "args": {
+        "project": "examples-output/heart/heart.piskel",
+        "output": "examples-output/heart/heart.gif"
+      }
+    },
+    {
+      "command": "export.frames",
+      "args": {
+        "project": "examples-output/heart/heart.piskel",
+        "output-dir": "examples-output/heart/frames"
+      }
+    }
+  ]
+}
