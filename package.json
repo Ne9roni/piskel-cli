@@ -13,9 +13,17 @@
     "test": "vitest run",
     "test:watch": "vitest"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ne9roni/piskel-cli.git"
+  },
+  "homepage": "https://github.com/Ne9roni/piskel-cli#readme",
+  "bugs": {
+    "url": "https://github.com/Ne9roni/piskel-cli/issues"
+  },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "dependencies": {
     "gifenc": "^1.0.3",
     "pngjs": "^7.0.0"

@@ -36,3 +36,7 @@ node dist/src/cli.js --help
 ## 测试
 
 开发与验证使用 package.json 中的 `test` 脚本（Vitest）。用例位于 `tests/`，覆盖 `.piskel` 读写、CLI 行为、默认输出与计划执行等。
+
+## License
+
+本项目采用 `Apache-2.0` 许可证，完整条款见根目录 `LICENSE`。
