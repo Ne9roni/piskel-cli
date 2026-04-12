@@ -1,5 +1,5 @@
 {
-  "name": "piskel-cli",
+  "name": "@ne9roni/piskel-cli",
   "version": "1.0.0",
   "description": "Headless Piskel-compatible CLI probes",
   "type": "module",
@@ -10,6 +10,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "build:reference-exe": "node scripts/build-reference-exe.mjs",
+    "prepublishOnly": "npm run build && npm test",
     "test": "vitest run",
     "test:watch": "vitest"
   },
@@ -24,6 +25,12 @@
   "keywords": [],
   "author": "",
   "license": "Apache-2.0",
+  "files": [
+    "dist/src",
+    "README.md",
+    "LICENSE",
+    "package.json"
+  ],
   "dependencies": {
     "gifenc": "^1.0.3",
     "pngjs": "^7.0.0"

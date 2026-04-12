@@ -11,9 +11,9 @@ description: Use when an AI agent needs to create, edit, inspect, or export pixe
 
 1. 环境变量 **`PISKEL_CLI`**：指向完整命令或包装脚本（可含参数前缀）。
 2. **`piskel-cli`**：已在 `PATH` 中（例如全局安装）。
-3. **`npx piskel-cli@1.0.0`**：未安装时使用（版本与 npm 包 `piskel-cli` 对齐，可按发布说明升级）。
+3. **`npx @ne9roni/piskel-cli@1.0.0`**：未安装时使用（版本与 npm 包 `@ne9roni/piskel-cli` 对齐，可按发布说明升级）。
 
-下文用 **`{{PISKEL}}`** 表示以上解析得到的调用前缀：例如 `piskel-cli`、`C:\bin\piskel-cli.exe`，或 `npx piskel-cli@1.0.0`。
+下文用 **`{{PISKEL}}`** 表示以上解析得到的调用前缀：例如 `piskel-cli`、`C:\bin\piskel-cli.exe`，或 `npx @ne9roni/piskel-cli@1.0.0`。
 
 ## 核心规则
 
@@ -50,7 +50,7 @@ description: Use when an AI agent needs to create, edit, inspect, or export pixe
 ## 给 AI 的提示词模板
 
 ```text
-请使用 piskel-cli 生成像素图（优先 PISKEL_CLI，其次 PATH，其次 npx piskel-cli@1.0.0）。
+请使用 piskel-cli 生成像素图（优先 PISKEL_CLI，其次 PATH，其次 npx @ne9roni/piskel-cli@1.0.0）。
 优先使用带 --json 的命令；多步操作优先写成 plan.json 后用 run 执行。
 如果执行失败，先读取 error.code 和 error.message 再修正。
 如果需要核对内容，使用 read frame、read palette、read bounds。

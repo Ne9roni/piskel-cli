@@ -18,6 +18,13 @@ node dist/src/cli.js --help
 
 也可以直接运行 `node dist/src/cli.js` 查看完整命令用法。
 
+如果通过 npm 安装已发布版本，可使用：
+
+```bash
+npm install -g @ne9roni/piskel-cli
+piskel-cli --help
+```
+
 ## 文档与技能
 
 - 命令用法与说明：`docs/commands.md`
