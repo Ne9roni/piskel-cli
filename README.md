@@ -28,7 +28,8 @@ piskel-cli --help
 ## 文档与技能
 
 - 命令用法与说明：`docs/commands.md`
-- 用 AI 配合本 CLI 生成像素图：`skills/using-piskel-cli/SKILL.md`
+- 安装 Agent 技能（[Skills CLI](https://www.npmjs.com/package/skills)）：`npx skills add Ne9roni/piskel-cli`
+- 技能说明：`skills/using-piskel-cli/SKILL.md`
 
 ## 示例
 
