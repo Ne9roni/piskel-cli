@@ -1,19 +1,19 @@
-# 计划文件与 JSON 参考
+# Plan files and JSON reference
 
-## 可执行文件
+## Executable resolution
 
-与主技能 `SKILL.md` 一致：用 **`{{PISKEL}}`** 表示解析后的调用前缀（`PISKEL_CLI` → `piskel-cli` → `npx piskel-cli@1.0.0`）。
+Same as the main skill `SKILL.md`: use **`{{PISKEL}}`** for the resolved command prefix (`PISKEL_CLI` → `piskel-cli` → `npx @ne9roni/piskel-cli@…` per your environment).
 
-## `run` 计划结构
+## `run` plan shape
 
-顶层对象需包含 `steps` 数组；每一项：
+The top-level object must contain a `steps` array. Each step has:
 
-- `command`：点号分隔的 **两段**，对应 CLI 的「命令组 + 子命令」，例如 `project.create`、`draw.pixel`、`export.png`。
-- `args`：可选对象；其中 `project` 会映射成紧跟子命令后的工程路径参数，其余键会映射成 `--flag value`。
+- `command` — **two** dot-separated segments matching CLI `group.subcommand`, e.g. `project.create`, `draw.pixel`, `export.png`.
+- `args` — optional object; `project` maps to the positional `.piskel` path right after the subcommand; other keys become `--flag value`.
 
-布尔 `true` 会变为无值开关 `--flag`。
+Boolean `true` becomes a flag with no value (`--flag`).
 
-## 最小示例
+## Minimal example
 
 ```json
 {
@@ -47,11 +47,11 @@
 }
 ```
 
-相对路径均相对于执行 CLI 时的当前工作目录。
+Relative paths are resolved from the current working directory when the CLI runs.
 
-## `--json` 返回形态（摘要）
+## `--json` response shape (summary)
 
-成功：
+Success:
 
 ```json
 {
@@ -60,7 +60,7 @@
 }
 ```
 
-`run` 全部步骤成功时常见：
+When `run` completes all steps:
 
 ```json
 {
@@ -71,7 +71,7 @@
 }
 ```
 
-失败：
+Failure:
 
 ```json
 {
@@ -83,20 +83,20 @@
 }
 ```
 
-## 执行示例
+## Running a plan
 
-下面是一种典型执行方式（把 `{{PISKEL}}` 换成实际前缀）：
+Typical invocation (replace `{{PISKEL}}` with your actual prefix):
 
 ```bash
 {{PISKEL}} run plan.json --json
 ```
 
-如果计划内容类似上面的最小示例，常见输出会是：
+For a plan similar to the minimal example above, you will usually get:
 
 - `output/example.piskel`
 - `output/example.png`
 
-如果还包含 GIF 或逐帧导出步骤，则可能额外产生：
+If the plan also exports GIF or per-frame PNGs, you may additionally see:
 
 - `output/example.gif`
 - `output/frames/frame-0.png`

@@ -1,16 +1,18 @@
 {
   "name": "@ne9roni/piskel-cli",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Headless Piskel-compatible CLI probes",
   "type": "module",
   "main": "dist/src/cli.js",
   "bin": {
-    "piskel-cli": "./dist/src/cli.js"
+    "piskel-cli": "dist/src/cli.js"
   },
   "scripts": {
+    "sync-piskel-vendor": "node scripts/sync-piskel-vendor.mjs",
     "build": "tsc -p tsconfig.json",
     "build:reference-exe": "node scripts/build-reference-exe.mjs",
-    "prepublishOnly": "npm run build && npm test",
+    "assert-vendor": "node scripts/assert-vendor.mjs",
+    "prepublishOnly": "npm run build && npm test && npm run assert-vendor",
     "test": "vitest run",
     "test:watch": "vitest"
   },
@@ -27,8 +29,12 @@
   "license": "Apache-2.0",
   "files": [
     "dist/src",
+    "vendor/piskel-prod",
+    "vendor/README.md",
     "skills",
     "README.md",
+    "README.zh-CN.md",
+    "docs",
     "LICENSE",
     "package.json"
   ],

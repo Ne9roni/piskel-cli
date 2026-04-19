@@ -1,7 +1,9 @@
 # piskel-cli
 
+> **中文文档：** [README.zh-CN.md](README.zh-CN.md)
+
 > **Headless pixel art engine for scripts, pipelines, and AI agents.**  
-> Create, edit, and export `.piskel` files entirely from the terminal — no browser, no GUI, no clicks.
+> Create, edit, and export `.piskel` files from the terminal; use `serve` when you want the bundled **Piskel** web editor in a browser.
 
 [![npm version](https://img.shields.io/npm/v/@ne9roni/piskel-cli)](https://www.npmjs.com/package/@ne9roni/piskel-cli)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](LICENSE)
@@ -118,6 +120,8 @@ npm install -g @ne9roni/piskel-cli
 piskel-cli --help
 ```
 
+The published npm package includes a **production build of Piskel** under `vendor/piskel-prod`, so `npm install -g @ne9roni/piskel-cli` is enough for **`piskel-cli serve`** — no separate clone or download of the editor.
+
 Or use locally from source:
 
 ```bash
@@ -126,6 +130,21 @@ cd piskel-cli
 npm install && npm run build
 node dist/src/cli.js --help
 ```
+
+If you clone without `vendor/piskel-prod`, run `npm run sync-piskel-vendor` once (needs a built [piskel](https://github.com/piskelapp/piskel) tree; see [`vendor/README.md`](vendor/README.md)).
+
+---
+
+## Browser editor (`serve`)
+
+Optional: open the same pixel editor as [piskelapp.com](https://www.piskelapp.com/) on your machine:
+
+```bash
+piskel-cli serve
+piskel-cli serve path/to/project.piskel
+```
+
+Use `--no-open` to only print the URL, and `--port` / `--host` to control the local server. Press Ctrl+C to stop.
 
 ---
 
@@ -182,8 +201,9 @@ piskel-cli run my-plan.json --json
 | **Read** | `read pixel`, `read frame`, `read project`, `read palette`, `read bounds` |
 | **Export** | `export png`, `export gif`, `export spritesheet`, `export frames` |
 | **Run** | `run <plan.json>` — execute multi-step plan files |
+| **Serve** | `serve [<project.piskel>]` — local HTTP + bundled Piskel web UI |
 
-Full reference: [`docs/commands.md`](docs/commands.md)
+Full reference: [`docs/commands.md`](docs/commands.md) · [中文版 `docs/commands.zh-CN.md`](docs/commands.zh-CN.md)
 
 ---
 
@@ -221,6 +241,7 @@ piskel-cli is implemented as a pure **Node.js / TypeScript** library with zero r
 
 - **`src/probe/`** — headless read/write engine for `.piskel` files
 - **`src/cli/`** — command parser and JSON protocol layer
+- **`vendor/piskel-prod/`** — shipped copy of upstream Piskel `dest/prod` (used by `serve`; refreshed via `npm run sync-piskel-vendor`)
 - **`tests/`** — Vitest test suite covering `.piskel` I/O, CLI behavior, export correctness, and plan execution
 
 ---
@@ -233,6 +254,19 @@ npm run build          # Compile TypeScript
 npm test               # Run full test suite (Vitest)
 npm run test:watch     # Watch mode
 ```
+
+### Bundled Piskel editor (for `serve`)
+
+From a local clone of [piskelapp/piskel](https://github.com/piskelapp/piskel) with `npm install && npm run build` already run:
+
+```bash
+npm run sync-piskel-vendor
+# or: PISKEL_ROOT=/path/to/piskel npm run sync-piskel-vendor
+```
+
+Details: [`vendor/README.md`](vendor/README.md).
+
+**Publishing:** `npm publish` runs `prepublishOnly`, which ends with **`npm run assert-vendor`**. If `vendor/piskel-prod/index.html` is missing, publish fails so the registry package never ships a broken `serve`. Run `sync-piskel-vendor` before releasing.
 
 Tests live in [`tests/`](tests/) and cover `.piskel` read/write, CLI behavior, default output paths, and plan execution end-to-end.
 

@@ -40,6 +40,7 @@ import {
   getDefaultExportPath,
   getDefaultProjectPath,
 } from "./output-paths.js";
+import { parseServeArgs, serveEditor } from "./serve-editor.js";
 
 export interface CliIo {
   writeStdout: (line: string) => void;
@@ -85,6 +86,11 @@ export async function runCli(argv: string[], io: CliIo): Promise<number> {
 
     if (group === "run") {
       return await runPlan([command, ...rest].filter((value): value is string => typeof value === "string"), io);
+    }
+
+    if (group === "serve") {
+      const serveArgs = [command, ...rest].filter((value): value is string => typeof value === "string");
+      return await runServe(serveArgs, io);
     }
 
     if (group === "project" && command === "info") {
@@ -212,6 +218,30 @@ export async function runCli(argv: string[], io: CliIo): Promise<number> {
     const normalized = normalizeCliError(error);
     return writeError(io, wantsJson(argv), normalized.code, normalized.message);
   }
+}
+
+async function runServe(args: string[], io: CliIo): Promise<number> {
+  const { positionals, flags } = parseServeArgs(args);
+  const projectPath = positionals[0];
+  const portRaw = flags.port;
+  let port: number | undefined;
+  if (typeof portRaw === "string") {
+    const parsed = Number.parseInt(portRaw, 10);
+    if (Number.isNaN(parsed) || parsed < 0) {
+      return writeError(io, Boolean(flags.json), "USAGE_ERROR", "Invalid `--port` value.");
+    }
+    port = parsed;
+  }
+
+  const host = typeof flags.host === "string" ? flags.host : undefined;
+
+  return serveEditor(io, {
+    projectPath,
+    port,
+    host,
+    openBrowser: !flags["no-open"],
+    json: Boolean(flags.json),
+  });
 }
 
 async function runProjectCreate(args: string[], io: CliIo): Promise<number> {
@@ -992,6 +1022,7 @@ function clampColumns(columns: number, frameCount: number): number {
 function getUsage(): string {
   return [
     "Usage:",
+    "  piskel-cli serve [<project.piskel>] [--port N] [--host 127.0.0.1] [--no-open] [--json]",
     "  piskel-cli project create --width <n> --height <n> [--output <file.piskel>] [--fps N] [--name <name>] [--json]  (default: output/output.piskel)",
     "  piskel-cli project info <project.piskel> [--json]",
     "  piskel-cli layer list <project.piskel> [--json]",

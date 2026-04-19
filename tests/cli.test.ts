@@ -33,6 +33,7 @@ describe("cli", () => {
     expect(helpIo.stderr).toEqual([]);
     expect(shortHelpIo.stderr).toEqual([]);
     expect(helpIo.stdout.join("\n")).toMatch(/Usage:/);
+    expect(helpIo.stdout.join("\n")).toMatch(/serve/);
     expect(shortHelpIo.stdout.join("\n")).toMatch(/Usage:/);
   });
 
