@@ -13,35 +13,98 @@
 
 [Piskel](https://www.piskelapp.com/) is a beloved browser-based pixel art editor. **piskel-cli** brings its `.piskel` format to the command line, making pixel art a first-class citizen in any automated workflow:
 
-- **AI agents** can generate sprites and animations programmatically
+- **AI agents** can generate sprites and animations with a single prompt — no image model required
 - **Build pipelines** can produce and export assets without human interaction
 - **Scripts** can batch-edit hundreds of frames in seconds
 - **CI/CD** can validate and regenerate pixel art assets automatically
 
-Every operation is scriptable, composable, and returns structured JSON — making it trivially easy to chain with other tools.
+Every operation is scriptable, composable, and returns structured JSON — trivially easy to chain with other tools.
 
 ---
 
-## Demo
+## AI Agent Integration
 
-Describe your art once in a plan file, run one command, get PNG + GIF + frame exports:
+**You don't need an image generation model to create pixel art with AI.** Any LLM that can write JSON can generate production-ready sprites and animations by describing them as a plan file.
+
+### Install the AI skill
 
 ```bash
-piskel-cli run examples/heart-plan.json --json
+npx skills add Ne9roni/piskel-cli
 ```
+
+This installs a structured prompt ([`skills/using-piskel-cli/SKILL.md`](skills/using-piskel-cli/SKILL.md)) into your AI agent that teaches it the full piskel-cli workflow — including a mandatory alignment step before making any changes, so the AI never generates something you didn't ask for.
+
+### How it works
+
+Tell your AI agent (Claude, GPT, Cursor, etc.) what you want in plain language:
+
+> *"Draw a 16×16 red mushroom sprite with white spots and export it as PNG"*
+
+The agent writes a `plan.json` and runs:
+
+```bash
+piskel-cli run mushroom-plan.json --json
+```
+
+That's it. No image model. No diffusion. Pure geometry.
+
+---
+
+## AI-Generated Demo
+
+Everything below was generated entirely by an AI agent using piskel-cli — from a one-line description to exported files. No image model was involved.
+
+### Sprites (PNG)
 
 <table>
 <tr>
-<td align="center"><b>heart.gif</b></td>
-<td align="center"><b>twinkle-star.gif</b></td>
+<th align="center">Mushroom</th>
+<th align="center">Gem</th>
+<th align="center">Sword</th>
+<th align="center">Heart</th>
 </tr>
 <tr>
-<td align="center"><img src="examples-output/heart/heart.gif" alt="heart pixel art" /></td>
-<td align="center"><img src="examples-output/twinkle-star/twinkle-star.gif" alt="twinkle star animation" /></td>
+<td align="center"><img src="examples-output/mushroom/mushroom.png" alt="mushroom sprite" /></td>
+<td align="center"><img src="examples-output/gem/gem.png" alt="gem sprite" /></td>
+<td align="center"><img src="examples-output/sword/sword.png" alt="sword sprite" /></td>
+<td align="center"><img src="examples-output/heart/heart.png" alt="heart sprite" /></td>
+</tr>
+<tr>
+<td align="center"><a href="examples/mushroom-plan.json">mushroom-plan.json</a></td>
+<td align="center"><a href="examples/gem-plan.json">gem-plan.json</a></td>
+<td align="center"><a href="examples/sword-plan.json">sword-plan.json</a></td>
+<td align="center"><a href="examples/heart-plan.json">heart-plan.json</a></td>
 </tr>
 </table>
 
-Both generated entirely by `piskel-cli` from JSON plan files in [`examples/`](examples/).
+### Animations (GIF)
+
+<table>
+<tr>
+<th align="center">Coin Spin</th>
+<th align="center">Fire</th>
+<th align="center">Ghost</th>
+<th align="center">Twinkle Star</th>
+</tr>
+<tr>
+<td align="center"><img src="examples-output/coin-spin/coin-spin.gif" alt="coin spin animation" /></td>
+<td align="center"><img src="examples-output/fire/fire.gif" alt="fire animation" /></td>
+<td align="center"><img src="examples-output/ghost/ghost.gif" alt="ghost animation" /></td>
+<td align="center"><img src="examples-output/twinkle-star/twinkle-star.gif" alt="twinkle star animation" /></td>
+</tr>
+<tr>
+<td align="center"><a href="examples/coin-spin-plan.json">coin-spin-plan.json</a></td>
+<td align="center"><a href="examples/fire-plan.json">fire-plan.json</a></td>
+<td align="center"><a href="examples/ghost-plan.json">ghost-plan.json</a></td>
+<td align="center"><a href="examples/twinkle-star-plan.json">twinkle-star-plan.json</a></td>
+</tr>
+</table>
+
+Each example is a self-contained JSON plan file in [`examples/`](examples/). Run any of them yourself:
+
+```bash
+piskel-cli run examples/fire-plan.json --json
+```
 
 ---
 
@@ -149,18 +212,6 @@ piskel-cli run examples/twinkle-star-plan.json --json
 ```
 
 See [`examples/`](examples/) for full working examples and [`skills/using-piskel-cli/reference/reference-plan-format.md`](skills/using-piskel-cli/reference/reference-plan-format.md) for the complete plan format spec.
-
----
-
-## AI Agent Integration
-
-piskel-cli ships with a [Skills CLI](https://www.npmjs.com/package/skills) skill — a structured prompt that tells AI agents exactly how to use this tool safely and correctly:
-
-```bash
-npx skills add Ne9roni/piskel-cli
-```
-
-The skill enforces a mandatory alignment step before any mutating operations, preventing AI agents from making unintended changes. See [`skills/using-piskel-cli/SKILL.md`](skills/using-piskel-cli/SKILL.md).
 
 ---
 

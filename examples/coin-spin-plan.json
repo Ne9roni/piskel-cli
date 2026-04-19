@@ -1,0 +1,48 @@
+{
+  "steps": [
+    {
+      "command": "project.create",
+      "args": {
+        "width": 16,
+        "height": 16,
+        "fps": 8,
+        "output": "examples-output/coin-spin/coin-spin.piskel",
+        "name": "coin-spin"
+      }
+    },
+    { "command": "draw.circle", "args": { "project": "examples-output/coin-spin/coin-spin.piskel", "frame": 0, "x1": 2, "y1": 2, "x2": 13, "y2": 13, "color": "#f59e0b" } },
+    { "command": "draw.rect",   "args": { "project": "examples-output/coin-spin/coin-spin.piskel", "frame": 0, "x1": 3, "y1": 3, "x2": 12, "y2": 12, "color": "#fbbf24", "filled": true } },
+    { "command": "draw.circle", "args": { "project": "examples-output/coin-spin/coin-spin.piskel", "frame": 0, "x1": 2, "y1": 2, "x2": 13, "y2": 13, "color": "#f59e0b" } },
+    { "command": "draw.pixel",  "args": { "project": "examples-output/coin-spin/coin-spin.piskel", "frame": 0, "x": 7, "y": 5, "color": "#fef3c7" } },
+    { "command": "draw.pixel",  "args": { "project": "examples-output/coin-spin/coin-spin.piskel", "frame": 0, "x": 8, "y": 5, "color": "#fef3c7" } },
+    { "command": "draw.pixel",  "args": { "project": "examples-output/coin-spin/coin-spin.piskel", "frame": 0, "x": 7, "y": 6, "color": "#fef3c7" } },
+    { "command": "draw.pixel",  "args": { "project": "examples-output/coin-spin/coin-spin.piskel", "frame": 0, "x": 6, "y": 7, "color": "#fef3c7" } },
+    { "command": "draw.pixel",  "args": { "project": "examples-output/coin-spin/coin-spin.piskel", "frame": 0, "x": 7, "y": 7, "color": "#fef3c7" } },
+    { "command": "frame.duplicate", "args": { "project": "examples-output/coin-spin/coin-spin.piskel", "frame": 0 } },
+    { "command": "frame.duplicate", "args": { "project": "examples-output/coin-spin/coin-spin.piskel", "frame": 0 } },
+    { "command": "frame.duplicate", "args": { "project": "examples-output/coin-spin/coin-spin.piskel", "frame": 0 } },
+    { "command": "draw.rect",   "args": { "project": "examples-output/coin-spin/coin-spin.piskel", "frame": 1, "x1": 5, "y1": 3, "x2": 10, "y2": 12, "color": "#fbbf24", "filled": true } },
+    { "command": "draw.rect",   "args": { "project": "examples-output/coin-spin/coin-spin.piskel", "frame": 1, "x1": 3, "y1": 3, "x2": 4, "y2": 12, "color": "#92400e", "filled": true } },
+    { "command": "draw.rect",   "args": { "project": "examples-output/coin-spin/coin-spin.piskel", "frame": 1, "x1": 11, "y1": 3, "x2": 12, "y2": 12, "color": "#92400e", "filled": true } },
+    { "command": "draw.line",   "args": { "project": "examples-output/coin-spin/coin-spin.piskel", "frame": 1, "x1": 5, "y1": 2, "x2": 10, "y2": 2, "color": "#f59e0b" } },
+    { "command": "draw.line",   "args": { "project": "examples-output/coin-spin/coin-spin.piskel", "frame": 1, "x1": 5, "y1": 13, "x2": 10, "y2": 13, "color": "#f59e0b" } },
+    { "command": "draw.rect",   "args": { "project": "examples-output/coin-spin/coin-spin.piskel", "frame": 2, "x1": 6, "y1": 3, "x2": 9, "y2": 12, "color": "#fbbf24", "filled": true } },
+    { "command": "draw.rect",   "args": { "project": "examples-output/coin-spin/coin-spin.piskel", "frame": 2, "x1": 3, "y1": 3, "x2": 5, "y2": 12, "color": "#78350f", "filled": true } },
+    { "command": "draw.rect",   "args": { "project": "examples-output/coin-spin/coin-spin.piskel", "frame": 2, "x1": 10, "y1": 3, "x2": 12, "y2": 12, "color": "#78350f", "filled": true } },
+    { "command": "draw.line",   "args": { "project": "examples-output/coin-spin/coin-spin.piskel", "frame": 2, "x1": 6, "y1": 2, "x2": 9, "y2": 2, "color": "#f59e0b" } },
+    { "command": "draw.line",   "args": { "project": "examples-output/coin-spin/coin-spin.piskel", "frame": 2, "x1": 6, "y1": 13, "x2": 9, "y2": 13, "color": "#f59e0b" } },
+    { "command": "draw.rect",   "args": { "project": "examples-output/coin-spin/coin-spin.piskel", "frame": 3, "x1": 7, "y1": 2, "x2": 8, "y2": 13, "color": "#d97706", "filled": true } },
+    { "command": "draw.pixel",  "args": { "project": "examples-output/coin-spin/coin-spin.piskel", "frame": 3, "x": 6, "y": 3, "color": "#d97706" } },
+    { "command": "draw.pixel",  "args": { "project": "examples-output/coin-spin/coin-spin.piskel", "frame": 3, "x": 9, "y": 3, "color": "#d97706" } },
+    { "command": "draw.pixel",  "args": { "project": "examples-output/coin-spin/coin-spin.piskel", "frame": 3, "x": 6, "y": 12, "color": "#d97706" } },
+    { "command": "draw.pixel",  "args": { "project": "examples-output/coin-spin/coin-spin.piskel", "frame": 3, "x": 9, "y": 12, "color": "#d97706" } },
+    {
+      "command": "export.gif",
+      "args": {
+        "project": "examples-output/coin-spin/coin-spin.piskel",
+        "output": "examples-output/coin-spin/coin-spin.gif",
+        "delay-ms": 120
+      }
+    }
+  ]
+}
