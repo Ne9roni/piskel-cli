@@ -30,8 +30,11 @@
   "files": [
     "dist/src",
     "vendor/piskel-prod",
+    "vendor/README.md",
     "skills",
     "README.md",
+    "README.zh-CN.md",
+    "docs",
     "LICENSE",
     "package.json"
   ],

@@ -1,5 +1,7 @@
 # piskel-cli
 
+> **中文文档：** [README.zh-CN.md](README.zh-CN.md)
+
 > **Headless pixel art engine for scripts, pipelines, and AI agents.**  
 > Create, edit, and export `.piskel` files from the terminal; use `serve` when you want the bundled **Piskel** web editor in a browser.
 
@@ -201,7 +203,7 @@ piskel-cli run my-plan.json --json
 | **Run** | `run <plan.json>` — execute multi-step plan files |
 | **Serve** | `serve [<project.piskel>]` — local HTTP + bundled Piskel web UI |
 
-Full reference: [`docs/commands.md`](docs/commands.md)
+Full reference: [`docs/commands.md`](docs/commands.md) · [中文版 `docs/commands.zh-CN.md`](docs/commands.zh-CN.md)
 
 ---
 
