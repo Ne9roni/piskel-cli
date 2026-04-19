@@ -1,11 +1,11 @@
 {
   "name": "@ne9roni/piskel-cli",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Headless Piskel-compatible CLI probes",
   "type": "module",
   "main": "dist/src/cli.js",
   "bin": {
-    "piskel-cli": "./dist/src/cli.js"
+    "piskel-cli": "dist/src/cli.js"
   },
   "scripts": {
     "sync-piskel-vendor": "node scripts/sync-piskel-vendor.mjs",
