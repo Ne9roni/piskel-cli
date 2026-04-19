@@ -1,8 +1,21 @@
 import { describe, expect, test } from "vitest";
 
-import { buildEditorPageUrl, buildSessionLoadPath } from "../src/cli/serve-editor.js";
+import {
+  buildEditorPageUrl,
+  buildSessionLoadPath,
+  tryDecodeUriPathname,
+} from "../src/cli/serve-editor.js";
 
 describe("serve-editor helpers", () => {
+  test("tryDecodeUriPathname rejects malformed percent-encoding", () => {
+    expect(tryDecodeUriPathname("/%ZZ")).toBeNull();
+  });
+
+  test("tryDecodeUriPathname decodes valid paths", () => {
+    expect(tryDecodeUriPathname("/foo%20bar")).toBe("/foo bar");
+    expect(tryDecodeUriPathname("/")).toBe("/");
+  });
+
   test("buildSessionLoadPath", () => {
     expect(buildSessionLoadPath("deadbeef")).toBe("/__piskel/open/deadbeef");
   });

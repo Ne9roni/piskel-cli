@@ -56,6 +56,15 @@ function isPathUnderRoot(filePath: string, root: string): boolean {
   return resolvedFile === resolvedRoot || resolvedFile.startsWith(resolvedRoot + sep);
 }
 
+/** Decodes a URL pathname segment; returns null if percent-encoding is malformed. */
+export function tryDecodeUriPathname(pathname: string): string | null {
+  try {
+    return decodeURIComponent(pathname);
+  } catch {
+    return null;
+  }
+}
+
 export interface ServeEditorOptions {
   projectPath?: string;
   port?: number;
@@ -172,7 +181,14 @@ export async function serveEditor(io: ServeEditorIo, options: ServeEditorOptions
       return;
     }
 
-    let pathname = decodeURIComponent(url.pathname).replace(/^\/+/, "");
+    const decodedPath = tryDecodeUriPathname(url.pathname);
+    if (decodedPath === null) {
+      res.writeHead(400);
+      res.end("Bad request");
+      return;
+    }
+
+    let pathname = decodedPath.replace(/^\/+/, "");
     if (!pathname) {
       pathname = "index.html";
     }
