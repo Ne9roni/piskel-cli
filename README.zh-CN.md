@@ -34,7 +34,7 @@
 npx skills add Ne9roni/piskel-cli
 ```
 
-会在代理环境中安装结构化提示（[`skills/using-piskel-cli/SKILL.md`](skills/using-piskel-cli/SKILL.md)），其中包含完整工作流（英文）。
+会在代理环境中安装结构化提示（[`skills/piskel-skill/SKILL.md`](skills/piskel-skill/SKILL.md)），其中包含完整工作流（英文）。
 
 ### 工作方式
 
@@ -231,7 +231,7 @@ piskel-cli run my-plan.json --json
 piskel-cli run examples/twinkle-star-plan.json --json
 ```
 
-更多示例见 [`examples/`](examples/)；计划格式见 [`skills/using-piskel-cli/reference/reference-plan-format.md`](skills/using-piskel-cli/reference/reference-plan-format.md)（英文）。
+更多示例见 [`examples/`](examples/)；计划格式见 [`skills/piskel-skill/reference/reference-plan-format.md`](skills/piskel-skill/reference/reference-plan-format.md)（英文）。
 
 ---
 

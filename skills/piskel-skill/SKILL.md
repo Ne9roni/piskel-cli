@@ -1,5 +1,5 @@
 ---
-name: using-piskel-cli
+name: piskel-skill
 description: Use when an AI agent needs to create, edit, inspect, or export pixel art, sprites, animations, or .piskel files with piskel-cli in a tool-driven workflow. Workflow step 2 (align + explicit user go-ahead) is mandatory before any mutating or export commands; do not skip it.
 ---
 
@@ -47,7 +47,7 @@ For **every subcommand, flags, defaults, JSON protocol, error codes, and `serve`
 Paths below are relative to the **`@ne9roni/piskel-cli`** package root (same tree under `node_modules/@ne9roni/piskel-cli/` or `$(npm root -g)/@ne9roni/piskel-cli/`).
 
 - **Full CLI spec (all groups, flags, examples):** `docs/commands.md`
-- **Plan file shape for `run`:** `skills/using-piskel-cli/reference/reference-plan-format.md`
+- **Plan file shape for `run`:** `skills/piskel-skill/reference/reference-plan-format.md`
 
 Summary of groups (see `docs/commands.md` for details):
 

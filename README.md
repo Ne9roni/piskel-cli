@@ -34,7 +34,7 @@ Every operation is scriptable, composable, and returns structured JSON — trivi
 npx skills add Ne9roni/piskel-cli
 ```
 
-This installs a structured prompt ([`skills/using-piskel-cli/SKILL.md`](skills/using-piskel-cli/SKILL.md)) into your AI agent that teaches it the full piskel-cli workflow — including a mandatory alignment step before making any changes, so the AI never generates something you didn't ask for.
+This installs a structured prompt ([`skills/piskel-skill/SKILL.md`](skills/piskel-skill/SKILL.md)) into your AI agent that teaches it the full piskel-cli workflow — including a mandatory alignment step before making any changes, so the AI never generates something you didn't ask for.
 
 ### How it works
 
@@ -231,7 +231,7 @@ The `run` command executes a JSON plan file as an atomic sequence of steps — i
 piskel-cli run examples/twinkle-star-plan.json --json
 ```
 
-See [`examples/`](examples/) for full working examples and [`skills/using-piskel-cli/reference/reference-plan-format.md`](skills/using-piskel-cli/reference/reference-plan-format.md) for the complete plan format spec.
+See [`examples/`](examples/) for full working examples and [`skills/piskel-skill/reference/reference-plan-format.md`](skills/piskel-skill/reference/reference-plan-format.md) for the complete plan format spec.
 
 ---
 
