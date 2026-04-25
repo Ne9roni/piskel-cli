@@ -1,6 +1,6 @@
 {
   "name": "@ne9roni/piskel-cli",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Headless Piskel-compatible CLI probes",
   "type": "module",
   "main": "dist/src/cli.js",
